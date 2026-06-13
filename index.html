@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Germán Lucero | Productor Asesor de Seguros</title>
+  <meta name="description" content="Germán Lucero, Productor Asesor de Seguros en Argentina. Seguros de auto, hogar, comercio y vida. Matrícula nacional 109604." />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #17201d;
+      --muted: #5a6862;
+      --line: #d9e2de;
+      --paper: #f7faf8;
+      --white: #fff;
+      --green: #0f6b57;
+      --green-dark: #0a493d;
+      --gold: #c79748;
+      --aqua: #e4f3ee;
+      --shadow: 0 18px 50px rgba(16, 45, 38, 0.14);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      background: var(--green-dark);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.9rem;
+    }
+    .topbar .container {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 8px 0;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(217, 226, 222, 0.85);
+    }
+    .nav .container {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-weight: 800;
+    }
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #050505;
+      box-shadow: 0 8px 22px rgba(12, 18, 16, 0.24);
+      flex: 0 0 auto;
+    }
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: var(--white);
+      background: var(--green);
+      box-shadow: 0 12px 28px rgba(15, 107, 87, 0.24);
+    }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-secondary {
+      color: var(--green-dark);
+      background: var(--white);
+      border-color: var(--line);
+    }
+
+    .hero {
+      min-height: calc(100vh - 124px);
+      display: grid;
+      align-items: end;
+      background:
+        linear-gradient(90deg, rgba(10, 31, 27, 0.84), rgba(10, 31, 27, 0.52) 50%, rgba(10, 31, 27, 0.12)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=82") center / cover;
+      color: var(--white);
+    }
+    .hero-content { max-width: 780px; padding: 94px 0 82px; }
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 11px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: 0; }
+    h1 {
+      margin-top: 20px;
+      font-size: clamp(2.45rem, 7vw, 5.4rem);
+      max-width: 920px;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .hero-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.16);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .hero-strip div { padding: 18px 22px; background: rgba(10, 73, 61, 0.72); }
+    .hero-strip strong { display: block; font-size: 1.1rem; }
+    .hero-strip span { color: rgba(255, 255, 255, 0.78); font-size: 0.93rem; }
+
+    section { padding: 88px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.1rem); max-width: 720px; }
+    .section-head p { max-width: 430px; margin: 0; color: var(--muted); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .service-card {
+      min-height: 330px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .service-card img {
+      width: 100%;
+      height: 154px;
+      object-fit: cover;
+    }
+    .service-card div { padding: 20px; }
+    .service-card h3 { font-size: 1.22rem; margin-bottom: 10px; }
+    .service-card p { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; }
+    .service-card a { color: var(--green); font-weight: 800; }
+
+    .quote-band { background: var(--white); }
+    .quote-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+    .quote-aside {
+      border-radius: var(--radius);
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(15, 107, 87, 0.16), rgba(15, 107, 87, 0.78)),
+        url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1100&q=82") center / cover;
+      color: var(--white);
+      display: flex;
+      align-items: end;
+      padding: 30px;
+    }
+    .quote-aside h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+    .quote-aside p { color: rgba(255, 255, 255, 0.86); margin: 14px 0 0; }
+
+    form {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      padding: 13px 14px;
+      font: inherit;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(15, 107, 87, 0.12);
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
+    .form-note { margin: 14px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+    .trust { background: var(--aqua); }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .trust-photo {
+      border-radius: var(--radius);
+      min-height: 420px;
+      object-fit: cover;
+      width: 100%;
+      box-shadow: var(--shadow);
+    }
+    .check-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 0;
+      list-style: none;
+    }
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+    .check-list span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .coverage-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .coverage-card h3 { font-size: 1.18rem; margin-bottom: 10px; }
+    .coverage-card p { margin: 0; color: var(--muted); }
+
+    .cta { padding: 0 0 88px; }
+    .cta-box {
+      border-radius: var(--radius);
+      padding: 44px;
+      background:
+        linear-gradient(90deg, rgba(10, 73, 61, 0.96), rgba(15, 107, 87, 0.82)),
+        url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=82") center / cover;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .cta-box h2 { font-size: clamp(1.9rem, 4vw, 3.3rem); max-width: 680px; }
+    .cta-box p { max-width: 620px; margin: 14px 0 0; color: rgba(255, 255, 255, 0.84); }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255, 255, 255, 0.82);
+      padding: 34px 0;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    footer strong { color: var(--white); }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25d366;
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.36);
+      z-index: 40;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover { transform: translateY(-3px) scale(1.02); }
+    .whatsapp-float svg { width: 23px; height: 23px; stroke-width: 2.2; }
+
+    @media (max-width: 920px) {
+      .nav .container {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+      .nav-links { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+      .hero { min-height: auto; }
+      .hero-strip, .service-grid, .quote-layout, .trust-grid, .coverage-grid { grid-template-columns: 1fr; }
+      .section-head, .cta-box { align-items: flex-start; flex-direction: column; }
+      .trust-photo { min-height: 300px; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .topbar .container { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .brand { align-items: center; }
+      .brand-logo { width: 50px; height: 50px; }
+      .nav-links { gap: 15px; font-size: 0.9rem; }
+      .hero-content { padding: 70px 0 54px; }
+      .hero-actions, .btn { width: 100%; }
+      section { padding: 64px 0; }
+      .form-grid { grid-template-columns: 1fr; }
+      .quote-aside, form, .cta-box { padding: 22px; }
+      .whatsapp-float { width: 56px; height: 56px; right: 16px; bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Productor Asesor de Seguros en Argentina · Matrícula nacional 109604</span>
+      <span>WhatsApp: 2612645039 · germandariolucero@gmail.com · Instagram: @seguros.gl</span>
+    </div>
+  </div>
+
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="container">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <img class="brand-logo" src="logo-german-lucero.png" alt="Logo de Germán Lucero" />
+        <span>
+          Germán Lucero
+          <small>Productor asesor de seguros</small>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#auto">Auto</a>
+        <a href="#hogar">Hogar</a>
+        <a href="#comercio">Comercio</a>
+        <a href="#vida">Vida</a>
+        <a href="#cotizacion">Cotizar</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Asesoramiento claro, cercano y profesional</span>
+        <h1>Germán Lucero Productor Asesor de Seguros</h1>
+        <p>Protegé tu auto, tu casa, tu comercio y tu futuro con una cobertura pensada para tu realidad. Te acompaño para comparar opciones, resolver dudas y contratar con confianza.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cotizacion">Solicitar presupuesto</a>
+          <a class="btn btn-secondary" href="https://wa.me/5492612645039?text=Hola%20Germ%C3%A1n%2C%20quiero%20consultar%20por%20un%20seguro." target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-strip" aria-label="Datos destacados">
+      <div><strong>Auto, hogar, comercio y vida</strong><span>Coberturas para cada etapa y necesidad.</span></div>
+      <div><strong>Atención personalizada</strong><span>Seguimiento antes, durante y después de contratar.</span></div>
+      <div><strong>Matrícula 109604</strong><span>Productor asesor habilitado en Argentina.</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="seguros-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="seguros-title">Seguros para cuidar lo que más importa</h2>
+          <p>Elegí una cobertura con asesoramiento humano, explicación simple y opciones adecuadas a tu presupuesto.</p>
+        </div>
+        <div class="service-grid">
+          <article id="auto" class="service-card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Auto asegurado en ruta" />
+            <div><h3>Seguro de auto</h3><p>Responsabilidad civil, terceros completo, todo riesgo, asistencia y opciones según uso del vehículo.</p><a href="#cotizacion">Cotizar auto</a></div>
+          </article>
+          <article id="hogar" class="service-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Casa familiar moderna" />
+            <div><h3>Seguro de hogar</h3><p>Protección para vivienda, incendio, robo, cristales, electrodomésticos y responsabilidad civil familiar.</p><a href="#cotizacion">Cotizar hogar</a></div>
+          </article>
+          <article id="comercio" class="service-card">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Local comercial y oficina" />
+            <div><h3>Seguro de comercio</h3><p>Coberturas para locales, oficinas y emprendimientos: incendio, robo, equipos, mercadería y RC.</p><a href="#cotizacion">Cotizar comercio</a></div>
+          </article>
+          <article id="vida" class="service-card">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=80" alt="Familia caminando al aire libre" />
+            <div><h3>Seguro de vida</h3><p>Planes para acompañar a tu familia, proteger ingresos y planificar tranquilidad a largo plazo.</p><a href="#cotizacion">Cotizar vida</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band" id="cotizacion" aria-labelledby="cotizacion-title">
+      <div class="container quote-layout">
+        <aside class="quote-aside">
+          <div>
+            <h2 id="cotizacion-title">Pedí tu cotización</h2>
+            <p>Completá tus datos y se abrirá WhatsApp con el mensaje listo para enviar. También podés escribir a germandariolucero@gmail.com.</p>
+          </div>
+        </aside>
+        <form id="quoteForm">
+          <div class="form-grid">
+            <label>Nombre y apellido<input name="nombre" type="text" placeholder="Tu nombre" required /></label>
+            <label>Teléfono<input name="telefono" type="tel" placeholder="Ej: 261..." required /></label>
+            <label>Correo electrónico<input name="email" type="email" placeholder="tu@email.com" /></label>
+            <label>Tipo de seguro<select name="seguro" required><option value="">Seleccionar</option><option>Auto</option><option>Hogar</option><option>Comercio</option><option>Incendio</option><option>Responsabilidad Civil</option><option>Transporte</option><option>Robo</option><option>Caución</option><option>Vida</option><option>Retiro</option><option>ART</option></select></label>
+            <label class="full">Mensaje<textarea name="mensaje" placeholder="Contame qué necesitás asegurar, zona, modelo del vehículo o detalle del comercio."></textarea></label>
+          </div>
+          <button class="btn btn-primary" type="submit" style="margin-top: 18px;">Enviar consulta por WhatsApp</button>
+          <p class="form-note">Al enviar, vas a continuar la conversación directamente con Germán Lucero.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="trust" aria-labelledby="asesoria-title">
+      <div class="container trust-grid">
+        <img class="trust-photo" src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1100&q=82" alt="Asesor atendiendo a un cliente" />
+        <div>
+          <div class="section-head" style="display: block; margin-bottom: 0;">
+            <h2 id="asesoria-title">Acompañamiento real cuando más lo necesitás</h2>
+            <p style="margin-top: 16px;">Un buen seguro empieza con una buena conversación. La idea es que entiendas qué contratás, qué cubre y cómo actuar ante un siniestro.</p>
+          </div>
+          <ul class="check-list">
+            <li><span>✓</span>Comparación de alternativas según cobertura, precio y condiciones.</li>
+            <li><span>✓</span>Gestión cercana para consultas, renovaciones y cambios de póliza.</li>
+            <li><span>✓</span>Orientación en documentación y pasos ante un siniestro.</li>
+            <li><span>✓</span>Atención por WhatsApp, teléfono y correo electrónico.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="coberturas-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="coberturas-title">Coberturas disponibles</h2>
+          <p>Asesoramiento para personas, familias, profesionales, obras, comercios y bienes en tránsito, con opciones según cada necesidad.</p>
+        </div>
+        <div class="coverage-grid">
+          <article class="coverage-card"><h3>Auto</h3><p>Coberturas para circular con respaldo: responsabilidad civil, terceros completo, todo riesgo y asistencia.</p></article>
+          <article class="coverage-card"><h3>Hogar</h3><p>Protección para vivienda, pertenencias, incendio, robo, cristales, electrodomésticos y responsabilidad civil familiar.</p></article>
+          <article class="coverage-card"><h3>Comercio</h3><p>Seguros para locales, oficinas y emprendimientos, con cobertura sobre bienes, mercadería, equipos y actividad comercial.</p></article>
+          <article class="coverage-card"><h3>Incendio</h3><p>Cobertura para viviendas, comercios, edificios, bienes y mercadería ante incendio y eventos asociados según la póliza contratada.</p></article>
+          <article class="coverage-card"><h3>Responsabilidad Civil</h3><p>Cobertura amplia para distintos riesgos frente a terceros: construcción, actividad profesional, explosiones, trabajos, operaciones y situaciones propias de cada actividad.</p></article>
+          <article class="coverage-card"><h3>Transporte</h3><p>Opciones para proteger mercadería, bienes, herramientas y equipos durante traslados, distribución u operatorias logísticas.</p></article>
+          <article class="coverage-card"><h3>Robo</h3><p>Coberturas para resguardar bienes, pertenencias, equipos, mercadería y elementos de valor ante robo o eventos contemplados en póliza.</p></article>
+          <article class="coverage-card"><h3>Caución</h3><p>Seguros para respaldar garantías, contratos, obligaciones comerciales, alquileres y compromisos específicos según el caso.</p></article>
+          <article class="coverage-card"><h3>Vida</h3><p>Planes para proteger a tu familia, cuidar ingresos y brindar respaldo económico ante situaciones imprevistas.</p></article>
+          <article class="coverage-card"><h3>Retiro</h3><p>Alternativas de ahorro y previsión a largo plazo, pensadas como complemento para planificar una jubilación con mayor tranquilidad.</p></article>
+          <article class="coverage-card"><h3>ART</h3><p>Asesoramiento en cobertura de riesgos del trabajo para empleadores, trabajadores y actividades laborales según la normativa vigente.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2 id="cta-title">Solicitá tu presupuesto hoy</h2>
+            <p>Mandá tu consulta y recibí asesoramiento para encontrar una cobertura seria, conveniente y adaptada a vos.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://wa.me/5492612645039?text=Hola%20Germ%C3%A1n%2C%20quiero%20solicitar%20un%20presupuesto%20de%20seguro." target="_blank" rel="noopener">Pedir presupuesto</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong>Germán Lucero Productor Asesor de Seguros</strong><br />Matrícula Nacional 109604</div>
+      <div>WhatsApp: <a href="https://wa.me/5492612645039" target="_blank" rel="noopener">2612645039</a><br />Email: <a href="mailto:germandariolucero@gmail.com">germandariolucero@gmail.com</a><br />Instagram: <a href="https://www.instagram.com/seguros.gl/" target="_blank" rel="noopener">@seguros.gl</a></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5492612645039?text=Hola%20Germ%C3%A1n%2C%20quiero%20consultar%20por%20un%20seguro." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <path d="M3.5 20.5l1.2-4A8.5 8.5 0 1 1 8 19.8l-4.5.7z" />
+      <path d="M8.8 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.8 1.8c.1.2.1.4-.1.6l-.4.5c-.2.2-.2.4 0 .6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.6-.6c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.6v.5c0 .3-.1.6-.5.8-.5.3-1.1.5-1.8.4-2.8-.3-6.4-3.5-6.8-6.5-.1-.7.1-1.3.4-1.8z" />
+    </svg>
+  </a>
+
+  <script>
+    const form = document.querySelector("#quoteForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const nombre = data.get("nombre").trim();
+      const telefono = data.get("telefono").trim();
+      const email = data.get("email").trim();
+      const seguro = data.get("seguro");
+      const mensaje = data.get("mensaje").trim();
+      const text = [
+        "Hola Germán, quiero solicitar una cotización.",
+        `Nombre: ${nombre}`,
+        `Teléfono: ${telefono}`,
+        email ? `Email: ${email}` : "",
+        `Seguro: ${seguro}`,
+        mensaje ? `Mensaje: ${mensaje}` : ""
+      ].filter(Boolean).join("\n");
+      window.open(`https://wa.me/5492612645039?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
