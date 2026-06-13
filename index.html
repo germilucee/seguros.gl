@@ -316,9 +316,105 @@
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: var(--shadow);
+      min-height: 250px;
     }
     .coverage-card h3 { font-size: 1.18rem; margin-bottom: 10px; }
     .coverage-card p { margin: 0; color: var(--muted); }
+    .coverage-card.image-card {
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+    }
+    .coverage-card.art-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.12), rgba(10, 31, 27, 0.84)),
+        url("art-trabajadores.png") center / cover;
+    }
+    .coverage-card.auto-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.82)),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.hogar-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.82)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.comercio-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.82)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.incendio-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.84)),
+        url("https://images.unsplash.com/photo-1523861751938-121b5323b48b?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.rc-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.84)),
+        url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.transporte-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.84)),
+        url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.robo-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.84)),
+        url("https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.retiro-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.82)),
+        url("seguro-retiro.png") center 22% / cover;
+    }
+    .coverage-card.vida-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.82)),
+        url("seguro-vida.png") center / cover;
+    }
+    .coverage-card.caucion-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.06), rgba(10, 31, 27, 0.82)),
+        url("seguro-caucion.png") center / cover;
+    }
+    .coverage-card.accidentes-card {
+      background:
+        linear-gradient(180deg, rgba(10, 31, 27, 0.08), rgba(10, 31, 27, 0.84)),
+        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80") center / cover;
+    }
+    .coverage-card.image-card p {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .faq {
+      background: var(--white);
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 22px 24px;
+      box-shadow: 0 10px 30px rgba(16, 45, 38, 0.08);
+    }
+    .faq-item h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+    }
 
     .cta { padding: 0 0 88px; }
     .cta-box {
@@ -348,6 +444,18 @@
       flex-wrap: wrap;
     }
     footer strong { color: var(--white); }
+    .ssn-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 360px;
+    }
+    .ssn-footer img {
+      width: min(260px, 100%);
+      height: auto;
+      object-fit: contain;
+      opacity: 0.94;
+    }
 
     .whatsapp-float {
       position: fixed;
@@ -482,7 +590,7 @@
             <label>Nombre y apellido<input name="nombre" type="text" placeholder="Tu nombre" required /></label>
             <label>Teléfono<input name="telefono" type="tel" placeholder="Ej: 261..." required /></label>
             <label>Correo electrónico<input name="email" type="email" placeholder="tu@email.com" /></label>
-            <label>Tipo de seguro<select name="seguro" required><option value="">Seleccionar</option><option>Auto</option><option>Hogar</option><option>Comercio</option><option>Incendio</option><option>Responsabilidad Civil</option><option>Transporte</option><option>Robo</option><option>Caución</option><option>Vida</option><option>Retiro</option><option>ART</option></select></label>
+            <label>Tipo de seguro<select name="seguro" required><option value="">Seleccionar</option><option>Auto</option><option>Hogar</option><option>Comercio</option><option>Incendio</option><option>Responsabilidad Civil</option><option>Transporte</option><option>Robo</option><option>Caución</option><option>Vida</option><option>Retiro</option><option>ART</option><option>Accidentes Personales</option></select></label>
             <label class="full">Mensaje<textarea name="mensaje" placeholder="Contame qué necesitás asegurar, zona, modelo del vehículo o detalle del comercio."></textarea></label>
           </div>
           <button class="btn btn-primary" type="submit" style="margin-top: 18px;">Enviar consulta por WhatsApp</button>
@@ -516,17 +624,45 @@
           <p>Asesoramiento para personas, familias, profesionales, obras, comercios y bienes en tránsito, con opciones según cada necesidad.</p>
         </div>
         <div class="coverage-grid">
-          <article class="coverage-card"><h3>Auto</h3><p>Coberturas para circular con respaldo: responsabilidad civil, terceros completo, todo riesgo y asistencia.</p></article>
-          <article class="coverage-card"><h3>Hogar</h3><p>Protección para vivienda, pertenencias, incendio, robo, cristales, electrodomésticos y responsabilidad civil familiar.</p></article>
-          <article class="coverage-card"><h3>Comercio</h3><p>Seguros para locales, oficinas y emprendimientos, con cobertura sobre bienes, mercadería, equipos y actividad comercial.</p></article>
-          <article class="coverage-card"><h3>Incendio</h3><p>Cobertura para viviendas, comercios, edificios, bienes y mercadería ante incendio y eventos asociados según la póliza contratada.</p></article>
-          <article class="coverage-card"><h3>Responsabilidad Civil</h3><p>Cobertura amplia para distintos riesgos frente a terceros: construcción, actividad profesional, explosiones, trabajos, operaciones y situaciones propias de cada actividad.</p></article>
-          <article class="coverage-card"><h3>Transporte</h3><p>Opciones para proteger mercadería, bienes, herramientas y equipos durante traslados, distribución u operatorias logísticas.</p></article>
-          <article class="coverage-card"><h3>Robo</h3><p>Coberturas para resguardar bienes, pertenencias, equipos, mercadería y elementos de valor ante robo o eventos contemplados en póliza.</p></article>
-          <article class="coverage-card"><h3>Caución</h3><p>Seguros para respaldar garantías, contratos, obligaciones comerciales, alquileres y compromisos específicos según el caso.</p></article>
-          <article class="coverage-card"><h3>Vida</h3><p>Planes para proteger a tu familia, cuidar ingresos y brindar respaldo económico ante situaciones imprevistas.</p></article>
-          <article class="coverage-card"><h3>Retiro</h3><p>Alternativas de ahorro y previsión a largo plazo, pensadas como complemento para planificar una jubilación con mayor tranquilidad.</p></article>
-          <article class="coverage-card"><h3>ART</h3><p>Asesoramiento en cobertura de riesgos del trabajo para empleadores, trabajadores y actividades laborales según la normativa vigente.</p></article>
+          <article class="coverage-card image-card auto-card"><h3>Auto</h3><p>Coberturas para circular con respaldo: responsabilidad civil, terceros completo, todo riesgo y asistencia.</p></article>
+          <article class="coverage-card image-card hogar-card"><h3>Hogar</h3><p>Protección para vivienda, pertenencias, incendio, robo, cristales, electrodomésticos y responsabilidad civil familiar.</p></article>
+          <article class="coverage-card image-card comercio-card"><h3>Comercio</h3><p>Seguros para locales, oficinas y emprendimientos, con cobertura sobre bienes, mercadería, equipos y actividad comercial.</p></article>
+          <article class="coverage-card image-card incendio-card"><h3>Incendio</h3><p>Cobertura para viviendas, comercios, edificios, bienes y mercadería ante incendio y eventos asociados según la póliza contratada.</p></article>
+          <article class="coverage-card image-card rc-card"><h3>Responsabilidad Civil</h3><p>Cobertura amplia para distintos riesgos frente a terceros: construcción, actividad profesional, explosiones, trabajos, operaciones y situaciones propias de cada actividad.</p></article>
+          <article class="coverage-card image-card transporte-card"><h3>Transporte</h3><p>Opciones para proteger mercadería, bienes, herramientas y equipos durante traslados, distribución u operatorias logísticas.</p></article>
+          <article class="coverage-card image-card robo-card"><h3>Robo</h3><p>Coberturas para resguardar bienes, pertenencias, equipos, mercadería y elementos de valor ante robo o eventos contemplados en póliza.</p></article>
+          <article class="coverage-card image-card caucion-card"><h3>Caución</h3><p>Seguros para respaldar garantías, contratos, obligaciones comerciales, alquileres y compromisos específicos según el caso.</p></article>
+          <article class="coverage-card image-card vida-card"><h3>Vida</h3><p>Planes para proteger a tu familia, cuidar ingresos y brindar respaldo económico ante situaciones imprevistas.</p></article>
+          <article class="coverage-card image-card retiro-card"><h3>Retiro</h3><p>Alternativas de ahorro y previsión a largo plazo, pensadas como complemento para planificar una jubilación con mayor tranquilidad.</p></article>
+          <article class="coverage-card image-card art-card"><h3>ART</h3><p>Asesoramiento en cobertura de riesgos del trabajo para empleadores, trabajadores y actividades laborales según la normativa vigente.</p></article>
+          <article class="coverage-card image-card accidentes-card"><h3>Accidentes Personales</h3><p>Cobertura para trabajadores independientes, actividades eventuales, deportistas o personas que buscan respaldo ante accidentes y sus consecuencias.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="faq-title">Preguntas frecuentes</h2>
+          <p>Respuestas rápidas para que puedas pedir tu cotización con tranquilidad.</p>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>¿La cotización tiene costo?</h3>
+            <p>No posee ningún costo.</p>
+          </article>
+          <article class="faq-item">
+            <h3>¿Cuánto tarda?</h3>
+            <p>En menos de 10 minutos tenés tu cotización lista.</p>
+          </article>
+          <article class="faq-item">
+            <h3>¿Puedo asegurar un vehículo usado?</h3>
+            <p>Sí, no habría ningún tipo de problema.</p>
+          </article>
+          <article class="faq-item">
+            <h3>¿Qué necesito para cotizar mi vehículo?</h3>
+            <p>Solamente voy a necesitar la tarjeta verde o título de la unidad, DNI del solicitante y localidad.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -548,6 +684,9 @@
     <div class="container">
       <div><strong>Germán Lucero Productor Asesor de Seguros</strong><br />Matrícula Nacional 109604</div>
       <div>WhatsApp: <a href="https://wa.me/5492612645039" target="_blank" rel="noopener">2612645039</a><br />Email: <a href="mailto:germandariolucero@gmail.com">germandariolucero@gmail.com</a><br />Instagram: <a href="https://www.instagram.com/seguros.gl/" target="_blank" rel="noopener">@seguros.gl</a></div>
+      <a class="ssn-footer" href="https://www.argentina.gob.ar/superintendencia-de-seguros" target="_blank" rel="noopener" aria-label="Superintendencia de Seguros de la Nación">
+        <img src="https://www.argentina.gob.ar/sites/default/files/styles/isologo/public/imagenEncabezado/ssn_horizontal_web_1.png?itok=SRgZD1UX" alt="SSN Superintendencia de Seguros de la Nación" />
+      </a>
     </div>
   </footer>
 
